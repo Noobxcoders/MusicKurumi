@@ -21,7 +21,7 @@ TIME_DURATION_UNITS = (
     ("sec", 1),
 )
 
-@Client.on_message(command("start") & filters.private & ~filters.edited)
+@Client.on_message(command("kstart") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     if not is_served_user(message.from_user.id):
         add_served_user(message.from_user.id)
@@ -47,7 +47,7 @@ async def start_(client: Client, message: Message):
         ),
     )
 
-@Client.on_message(command("start") & ~filters.private & ~filters.edited)
+@Client.on_message(command("kstart") & ~filters.private & ~filters.edited)
 async def start_grp(client: Client, message: Message):
     if not is_served_user(message.from_user.id):
         add_served_user(message.from_user.id)
@@ -61,7 +61,7 @@ async def start_grp(client: Client, message: Message):
     await message.reply_text(
         f"Hey {message.from_user.mention()}, I'm here for you at {message.chat.title} since : `{botuptime}`")
 
-@Client.on_message(command(["ping"]) & ~filters.edited)
+@Client.on_message(command(["kping"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("ᴘɪɴɢ..... 👀")
