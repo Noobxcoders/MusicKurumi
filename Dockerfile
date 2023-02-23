@@ -5,4 +5,4 @@ COPY . /app/
 WORKDIR /app/
 RUN pip3 install -U pip
 RUN pip3 install -U -r requirements.txt
-CMD python3 -m ShikimoriMusic
+CMD ["python3", "-m", "ShikimoriMusic"]
